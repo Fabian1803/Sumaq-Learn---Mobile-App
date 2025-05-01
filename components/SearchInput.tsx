@@ -4,13 +4,13 @@ import { Ionicons } from '@expo/vector-icons';
 type SearchInputProps = {
   value: string;
   onChangeText: (text: string) => void;
-  placeholder?: string; // Hacemos placeholder opcional
+  placeholder?: string;
 };
 
 export default function SearchInput({ 
   value, 
   onChangeText, 
-  placeholder = 'Buscar...' // Valor por defecto
+  placeholder = 'Buscar...'
 }: SearchInputProps) {
   return (
     <View style={styles.searchContainer}>

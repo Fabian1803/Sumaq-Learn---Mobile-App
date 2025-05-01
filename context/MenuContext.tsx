@@ -1,16 +1,13 @@
+// context/MenuContext.tsx
 import React, { createContext, useContext, useState } from 'react';
 
-const MenuContext = createContext<{
+type MenuContextType = {
   isVisible: boolean;
   openMenu: () => void;
   closeMenu: () => void;
-}>({
-  isVisible: false,
-  openMenu: () => {},
-  closeMenu: () => {},
-});
+};
 
-export const useMenu = () => useContext(MenuContext);
+const MenuContext = createContext<MenuContextType | undefined>(undefined);
 
 export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,4 +20,10 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
       {children}
     </MenuContext.Provider>
   );
+};
+
+export const useMenu = () => {
+  const context = useContext(MenuContext);
+  if (!context) throw new Error('useMenu debe usarse dentro de MenuProvider');
+  return context;
 };

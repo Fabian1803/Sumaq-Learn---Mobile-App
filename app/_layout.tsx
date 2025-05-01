@@ -1,53 +1,47 @@
-import { HeaderMenuButton } from '@/components/HeaderMenuButton';
-import { NextButton } from '@/components/NextButton';
-import { SelectionProvider } from '@/context/SelectionContext';
+// app/_layout.tsx o el archivo que tengas como RootLayout
 import { Stack } from 'expo-router';
 import React from 'react';
+import "../global.css";
+
+import { SelectionProvider } from '@/context/SelectionContext';
+import { MenuProvider } from '@/context/MenuContext'; // Asegúrate de importar esto
+import { SideMenu } from '@/components/SideMenu';
+import { CustomHeaderWithMenu } from '@/components/CustomHeaderWithMenu';
 
 export default function RootLayout() {
   return (
     <SelectionProvider>
-      <Stack
-        screenOptions={{
-          gestureEnabled: true,
-          gestureDirection: 'horizontal',
-          animation: 'fade', // Animación 'default', 'slide_from_right', 'slide_from_left', 'fade', 'none')
-        }}
-      >
-        <Stack.Screen
-          name="index"
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="screens/StartScreen"
-          options={{
-            title: 'StartScreen',
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="screens/SearchSchoolScreen"
-          options={{
-            title: 'Buscar',
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="screens/LoginScreen"
-          options={{
-            title: 'LoginScreen',
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="screens/Course"
-          options={{
-            title: 'Cursos',
-            headerShown: true,
-            headerRight: () => <HeaderMenuButton />,
-          }}
-        />
-      </Stack>
+      <MenuProvider>
+        <>
+          <Stack
+            screenOptions={{
+              gestureEnabled: true,
+              gestureDirection: 'horizontal',
+              animation: 'fade', // Animación 'default', 'slide_from_right', 'slide_from_left', 'fade', 'none')
+            }}
+          >
+            <Stack.Screen name="index" options={{ headerShown: false }} />
+            <Stack.Screen name="screens/login/StartScreen" options={{ headerShown: false }} />
+            <Stack.Screen name="screens/login/SearchSchoolScreen" options={{ headerShown: false }} />
+            <Stack.Screen name="screens/login/LoginScreen" options={{ headerShown: false }} />
+
+            <Stack.Screen
+              name="screens/dashboard/Course"
+              options={{
+                header: () => <CustomHeaderWithMenu title="Cursos" />,
+              }}
+            />
+            <Stack.Screen
+              name="screens/dashboard/Messages"
+              options={{
+                header: () => <CustomHeaderWithMenu title="Messages" />,
+              }}
+            />
+          </Stack>
+
+          <SideMenu />
+        </>
+      </MenuProvider>
     </SelectionProvider>
   );
 }

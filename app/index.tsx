@@ -2,22 +2,21 @@ import { View } from 'react-native';
 import { router } from 'expo-router';
 import React, { useEffect } from 'react';
 import { Image } from 'react-native'
-import { Colors } from '@/constants/Colors';
 
 export default function SplashScreen() {
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.replace('/screens/StartScreen'); // Redirige al Login después de 2 segundos
+      router.replace('/screens/login/StartScreen');
     }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: Colors.light.tile1 }}>
+    <View className="flex justify-center items-center bg-light-tile1 h-full">
       <Image
         source={require('@/assets/images/icon.png')}
-        style={{ width: 250, height: 250 }}
+        className='h-[250px] w-[250px]'
       />
     </View>
   );

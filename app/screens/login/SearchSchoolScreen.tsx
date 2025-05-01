@@ -1,16 +1,15 @@
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native'
-import React, { useState, useEffect, useLayoutEffect } from 'react'
+import { View, Text, FlatList, TouchableOpacity } from 'react-native'
+import React, { useState, useEffect } from 'react'
 import SearchInput from '@/components/SearchInput'
 import { useSelection } from '@/context/SelectionContext'
-import { router, useNavigation } from 'expo-router'
+import { router } from 'expo-router'
 import { CustomHeader } from '@/components/CustomHeader'
 
-// Agrega esto justo después de los imports
 type School = {
   id: string;
   name: string;
 };
-// Lista estática de universidades (puedes moverla a un archivo aparte)
+
 const UNIVERSITIES = [
   { id: '1', name: 'Universidad Nacional de Ingeniería' },
   { id: '2', name: 'Universidad Nacional Mayor de San Marcos' },
@@ -27,10 +26,7 @@ const UNIVERSITIES = [
 export default function SearchSchoolScreen() {
   const [searchText, setSearchText] = useState('')
   const [filteredData, setFilteredData] = useState<typeof UNIVERSITIES>([])
-  const { selectedSchool } = useSelection();
-  const { setSelectedSchool } = useSelection();
- 
-  // Filtra universidades cuando searchText tiene 3+ caracteres
+  const { selectedSchool, setSelectedSchool } = useSelection();
   useEffect(() => {
     if (searchText.length >= 3) {
       const filtered = UNIVERSITIES.filter(item =>
@@ -47,13 +43,14 @@ export default function SearchSchoolScreen() {
   };
   
   return (
-    <View style={styles.container}>
+    <View className='flex-1 bg-light-tile4'>
       <CustomHeader
         title="Buscar"
         showNext
         isNextEnabled={!!selectedSchool}
-        onNext={() => router.push('/screens/LoginScreen')}
+        onNext={() => router.push('/screens/login/LoginScreen')}
       />
+      
       <SearchInput 
         value={searchText} 
         onChangeText={setSearchText}
@@ -61,14 +58,16 @@ export default function SearchSchoolScreen() {
       />
       
       {searchText.length < 3 ? (
-        <View style={styles.placeholderContainer}>
-          <Text style={styles.placeholderText}>
+        <View className='flex-1 justify-center items-center p-5'>
+          <Text className='text-base text-gray-500 text-center'>
             Escribe al menos 3 letras para buscar
           </Text>
         </View>
       ) : filteredData.length === 0 ? (
-        <View style={styles.placeholderContainer}>
-          <Text style={styles.placeholderText}>No se encontraron universidades</Text>
+        <View className='flex-1 justify-center items-center p-5'>
+          <Text className='text-base text-gray-500 text-center'>
+            No se encontraron universidades
+          </Text>
         </View>
       ) : (
         <FlatList
@@ -77,12 +76,11 @@ export default function SearchSchoolScreen() {
           renderItem={({ item }) => (
             <TouchableOpacity
               onPress={() => handleSelectSchool(item)}
-              style={[
-                styles.item,
-                selectedSchool === item.id && styles.selectedItem
-              ]}
+              className={`p-4 border-b border-gray-200 ${
+                selectedSchool === item.id ? 'bg-light-tile2' : ''
+              }`}
             >
-              <Text style={styles.itemText}>{item.name}</Text>
+              <Text className='text-base'>{item.name}</Text>
             </TouchableOpacity>
           )}
         />
@@ -90,32 +88,3 @@ export default function SearchSchoolScreen() {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  placeholderContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  placeholderText: {
-    fontSize: 16,
-    color: '#888',
-    textAlign: 'center',
-  },
-  item: {
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
-  },
-  selectedItem: {
-    backgroundColor: '#e3f2fd',
-  },
-  itemText: {
-    fontSize: 16,
-  },
-})

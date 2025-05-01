@@ -22,6 +22,7 @@ export function CustomHeader({ title, showNext, isNextEnabled = true, onNext }: 
         <View>
             <View style={{ height: headerHeight, backgroundColor: Colors.light.tile1}}></View>
             <View style={styles.header}>
+                
                 <Text style={styles.title}>{title}</Text>
 
                 {showNext && (
