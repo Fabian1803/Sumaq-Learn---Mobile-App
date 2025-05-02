@@ -22,7 +22,6 @@ export default function LoginScreen() {
     };
 
     const handleForgotPassword = () => {
-        // Navegar a pantalla de recuperación de contraseña
         console.log('Olvidé mi contraseña');
     };
 
@@ -38,15 +37,15 @@ export default function LoginScreen() {
                 />
             </View>
 
-            <View className='flex items-center justify-center h-[30%]'>
+            <View className='flex items-center justify-center h-[25%]'>
                 <View className='w-[100px] h-[100px] rounded-[40px] mb-[10px] bg-slate-500'></View>
                 <Text className='text-[26px] text-center text-light-tile4 font-[700]'>Nombre de la universidad</Text>
             </View>
 
-            <View className='h-[45%] flex gap-[20px]'>
-                <View className='mb-[15px]'>
+            <View className='h-[50%] flex gap-[10%]'>
+                <View>
                     <Text className='text-[16px] mb-[8px] font-[700] text-light-tile4'>Código:</Text>
-                    <View className='flex flex-row items-center rounded-[8px] px-[12px] bg-light-tile4'>
+                    <View className='flex flex-row items-center rounded-[8px] px-[12px] bg-light-tile4 mb-[5%]'>
                         <Icon name="user" size={20} color="#769FCD" className='mr-[10px] w-[6%]' />
                         <TextInput
                             className='flex h-[50px] text-[16px] text-light-tile1 w-[94%]'
@@ -58,12 +57,9 @@ export default function LoginScreen() {
                             keyboardType="default"
                         />
                     </View>
-                </View>
-
-                <View className='mb-[15px]'>
                     <Text className='text-[16px] mb-[8px] font-[700] text-light-tile4'>Contraseña:</Text>
                     <View className='flex flex-row items-center rounded-[8px] px-[12px] bg-light-tile4'>
-                        <Icon name="lock" size={20} color="#769FCD" className='mr-[10px] w-[6%]' />
+                        <Icon name="lock" size={20} color={Colors.light.tile1} className='mr-[10px] w-[6%]' />
                         <TextInput
                             className='flex h-[50px] text-[16px] text-light-tile1 w-[79%]'
                             placeholder="Ingresa tu contraseña"
@@ -83,15 +79,13 @@ export default function LoginScreen() {
                             />
                         </TouchableOpacity>
                     </View>
+
                 </View>
-
-                <TouchableOpacity
-                    onPress={handleForgotPassword}
-                    className='flex items-end mt-[-10px]'
-                >
-                    <Text className='text-light-tile4 text-[14px] font-[500]'>¿Olvidaste tu contraseña?</Text>
-                </TouchableOpacity>
-
+                <Link href="../passwordRecovery/RecoveryPanel" asChild>
+                    <Pressable className='flex items-end mt-[-10px]'>
+                        <Text className='text-light-tile4 text-[14px] font-[500]'>¿Olvidaste tu contraseña?</Text>
+                    </Pressable>
+                </Link>
                 <Link href="../dashboard/Course" asChild>
                     <Pressable className='bg-light-tile3 px-[15px] rounded-[8px] items-center mt-[20px] h-[50px] justify-center'>
                         <Text className='text-light-tile1 text-[16px] font-bold'>Ingresar</Text>

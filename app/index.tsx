@@ -11,7 +11,7 @@ export default function SplashScreen() {
 
     return () => clearTimeout(timer);
   }, []);
-
+  
   return (
     <View className="flex justify-center items-center bg-light-tile1 h-full">
       <Image

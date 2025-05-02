@@ -9,13 +9,15 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.sumaqlearnmobileapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/blanco.png",
         "backgroundColor": "#769FCD"
-      }
+      },
+      "package": "com.anonymous.sumaqlearnmobileapp"
     },
     "web": {
       "bundler": "metro",

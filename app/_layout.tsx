@@ -1,10 +1,9 @@
-// app/_layout.tsx o el archivo que tengas como RootLayout
 import { Stack } from 'expo-router';
 import React from 'react';
 import "../global.css";
 
 import { SelectionProvider } from '@/context/SelectionContext';
-import { MenuProvider } from '@/context/MenuContext'; // Asegúrate de importar esto
+import { MenuProvider } from '@/context/MenuContext';
 import { SideMenu } from '@/components/SideMenu';
 import { CustomHeaderWithMenu } from '@/components/CustomHeaderWithMenu';
 
@@ -24,6 +23,7 @@ export default function RootLayout() {
             <Stack.Screen name="screens/login/StartScreen" options={{ headerShown: false }} />
             <Stack.Screen name="screens/login/SearchSchoolScreen" options={{ headerShown: false }} />
             <Stack.Screen name="screens/login/LoginScreen" options={{ headerShown: false }} />
+            <Stack.Screen name="screens/passwordRecovery/RecoveryPanel" options={{ headerShown: false }} />
 
             <Stack.Screen
               name="screens/dashboard/Course"
