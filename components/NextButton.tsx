@@ -9,7 +9,7 @@ export const NextButton = () => {
   const canNavigate = Boolean(selectedSchool);
   return (
     <TouchableOpacity
-      onPress={() => canNavigate && router.push('/screens/LoginScreen')}
+      onPress={() => canNavigate && router.push('./screens/LoginScreen')}
       style={{ marginRight: 15 }}
     >
       <Text style={{ color: canNavigate ? '#007AFF' : '#ccc', fontSize: 16 }}>

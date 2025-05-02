@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   Animated,
   Dimensions,
+  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -9,9 +10,10 @@ import {
 } from 'react-native';
 import { useMenu } from '@/context/MenuContext';
 import { router } from 'expo-router';
+import { Colors } from '@/constants/Colors';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const MENU_WIDTH = SCREEN_WIDTH * 0.7;
+const MENU_WIDTH = SCREEN_WIDTH * 0.8;
 
 export const SideMenu = () => {
   const { isVisible, closeMenu } = useMenu();
@@ -20,7 +22,7 @@ export const SideMenu = () => {
 
   useEffect(() => {
     if (isVisible) {
-      setShouldRender(true); // Mostrar el menú antes de animar
+      setShouldRender(true);
       Animated.timing(slideAnim, {
         toValue: 0,
         duration: 300,
@@ -32,7 +34,7 @@ export const SideMenu = () => {
         duration: 300,
         useNativeDriver: true,
       }).start(() => {
-        setShouldRender(false); // Ocultar el menú después de animar
+        setShouldRender(false);
       });
     }
   }, [isVisible]);
@@ -47,9 +49,26 @@ export const SideMenu = () => {
   ];
 
   return (
-    <View style={styles.overlay}>
+    <View style={styles.overlay} className=''>
       <TouchableOpacity style={styles.backdrop} onPress={closeMenu} activeOpacity={1} />
-      <Animated.View style={[styles.menuContainer, { transform: [{ translateX: slideAnim }] }]}>
+      <Animated.View
+        style={[styles.menuContainer, {
+          transform: [{ translateX: slideAnim }]
+        }]}
+        className='bg-light-tile1'>
+        <View className='flex flex-row px-[15px] gap-5'>
+          <View className="border-2" style={{overflow: 'hidden' , width: 90, height: 90, borderRadius: 50}}>
+            <Image
+              source={require('@/assets/images/blanco.png')}
+              className='h-full w-full'
+              resizeMode='cover'
+            />
+          </View>
+          <View className='flex flex-1 items-start justify-center'>
+            <Text className='text-light-tile4 font-bold text-2xl' style={{ lineHeight: 20 }}>Fabian Mauro Rivera Morales</Text>
+            <Text className='text-light-tile4'>Ingieneria de Software</Text>
+          </View>
+        </View>
         {menuItems.map((item, index) => (
           <TouchableOpacity
             key={index}
@@ -59,9 +78,20 @@ export const SideMenu = () => {
               closeMenu();
             }}
           >
-            <Text style={styles.menuText}>{item.title}</Text>
+            <Text className='text-light-tile4 text-2xl'>{item.title}</Text>
           </TouchableOpacity>
         ))}
+
+        <View className='flex flex-row justify-between'>
+          <Image
+            source={require('@/assets/images/icon.png')}
+            className='w-[110px] h-[110px]'
+          />
+          <Image
+            source={require('@/assets/images/icon.png')}
+            className='w-[110px] h-[110px]'
+          />
+        </View>
       </Animated.View>
     </View>
   );
@@ -87,7 +117,6 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     width: MENU_WIDTH,
-    backgroundColor: 'white',
     paddingTop: 60,
     shadowColor: '#000',
     shadowOffset: { width: 2, height: 0 },
@@ -98,9 +127,6 @@ const styles = StyleSheet.create({
   menuItem: {
     padding: 15,
     borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
-  },
-  menuText: {
-    fontSize: 16,
+    borderBottomColor: Colors.light.tile4,
   },
 });
