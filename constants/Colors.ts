@@ -10,7 +10,7 @@ export const Colors = {
     tile3: '#D6E6F2',
     tile4: '#F7FBFC',
     tint: tintColorLight,
-    icon: '#687076',
+    text1: 'black',
     tabIconDefault: '#687076',
     tabIconSelected: tintColorLight,
   },

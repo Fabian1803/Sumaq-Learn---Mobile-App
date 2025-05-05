@@ -1,9 +1,9 @@
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
-import RecoveryNextButton from '@/components/RecoveryNextButton'
+import RecoveryNextButton from '@/components/shared/RecoveryNextButton'
 import Icon from 'react-native-vector-icons/Feather'
 import { Colors } from '@/constants/Colors'
-import SecurePasswordEntry from '@/components/SecurePasswordEntry'
+import SecurePasswordEntry from '@/components/shared/SecurePasswordEntry'
 
 export default function PasswordChange() {
 

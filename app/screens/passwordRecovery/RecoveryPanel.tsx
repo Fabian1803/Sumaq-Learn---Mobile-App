@@ -2,7 +2,7 @@ import { View, Text, TextInput, Pressable } from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/Feather'
 import { Colors } from '@/constants/Colors'
-import RecoveryNextButton from '@/components/RecoveryNextButton'
+import RecoveryNextButton from '@/components/shared/RecoveryNextButton'
 
 export default function RecoveryPanel() {
     return (

@@ -1,30 +1,19 @@
-import { Tabs, Slot } from 'expo-router';
-import { CustomHeaderWithMenu } from '@/components/CustomHeaderWithMenu';
-import { SideMenu } from '@/components/SideMenu';
+import { Slot } from 'expo-router';
+import { CustomHeaderWithMenu } from '@/components/dashboard/CustomHeaderWithMenu';
+import { SideMenu } from '@/components/dashboard/SideMenu';
+import { CustomTabs } from '@/components/dashboard/CustomTabs';
+import { View } from 'react-native';
 
 export default function DashboardLayout() {
   return (
     <>
-      <Tabs
-        screenOptions={{
-          header: ({ route }) => (
-            <CustomHeaderWithMenu title={route.name} />
-          ),
-          tabBarActiveTintColor: '#007AFF',
-          tabBarStyle: {
-            backgroundColor: 'white',
-            borderTopColor: '#eee',
-            height: 60,
-          },
-          tabBarLabelStyle: {
-            fontSize: 12,
-            paddingBottom: 6,
-          },
-        }}
-      >
-        <Tabs.Screen name="Course" />
-        <Tabs.Screen name="Messages" />
-      </Tabs>
+      <CustomHeaderWithMenu title="Sumaq Learn" />
+
+      <View className="flex-1">
+        <Slot />
+      </View>
+
+      <CustomTabs />
 
       <SideMenu />
     </>

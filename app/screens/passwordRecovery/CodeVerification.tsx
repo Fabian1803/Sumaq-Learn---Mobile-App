@@ -1,7 +1,7 @@
 import { View, Text, TextInput, Pressable } from 'react-native'
 import React from 'react'
 import { Link } from 'expo-router'
-import RecoveryNextButton from '@/components/RecoveryNextButton';
+import RecoveryNextButton from '@/components/shared/RecoveryNextButton';
 
 export default function CodeVerification() {
     const valInput = 'text-[25px] text-center border-2 w-[15%] h-[15vw] rounded-md bg-light-tile3 border-light-tile1';

@@ -11,6 +11,7 @@ module.exports = {
                     tile2: '#B9D7EA',
                     tile3: '#D6E6F2',
                     tile4: '#F7FBFC',
+                    text1: 'black',
                 },
                 dark: {
 

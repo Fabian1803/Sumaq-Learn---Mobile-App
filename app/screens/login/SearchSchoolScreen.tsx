@@ -1,9 +1,9 @@
 import { View, Text, FlatList, TouchableOpacity } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import SearchInput from '@/components/SearchInput'
+import SearchInput from '@/components/auth/SearchInput'
 import { useSelection } from '@/context/SelectionContext'
 import { router } from 'expo-router'
-import { CustomHeader } from '@/components/CustomHeader'
+import { CustomHeader } from '@/components/auth/CustomHeader'
 
 type School = {
   id: string;

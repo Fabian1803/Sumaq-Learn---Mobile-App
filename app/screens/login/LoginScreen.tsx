@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import { Colors } from '@/constants/Colors';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import SecurePasswordEntry from '@/components/SecurePasswordEntry';
+import SecurePasswordEntry from '@/components/shared/SecurePasswordEntry';
 
 export default function LoginScreen() {
     const [passBtn, setPassBtn] = useState(false);
