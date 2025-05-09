@@ -14,8 +14,8 @@ type Proms = {
   
     return (
       <View
-        className="flex flex-row items-center rounded-[8px] px-[12px]"
-        style={{ backgroundColor: colorBg }}
+        className="flex flex-row items-center px-[12px]"
+        style={{ backgroundColor: colorBg, borderWidth: 3, borderRadius: 5 }}
       >
         <Icon name="lock" size={20} color={colorText} style={{ marginRight: 10 }} />
         <TextInput

@@ -7,14 +7,11 @@ import { View } from 'react-native';
 export default function DashboardLayout() {
   return (
     <>
-      <CustomHeaderWithMenu title="Sumaq Learn" />
-
+      <CustomHeaderWithMenu  />
       <View className="flex-1">
         <Slot />
       </View>
-
       <CustomTabs />
-
       <SideMenu />
     </>
   );

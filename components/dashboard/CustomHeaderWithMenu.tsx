@@ -1,28 +1,41 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useMenu } from '@/context/MenuContext';
 import Icon from 'react-native-vector-icons/Entypo';
 import { Colors } from '@/constants/Colors';
+import { useRouter } from 'expo-router';
 
 type Props = {
-  title: string;
+  showBackButton?: boolean;
 };
 
-export const CustomHeaderWithMenu = ({ title }: Props) => {
+export const CustomHeaderWithMenu = ({ showBackButton }: Props) => {
   const insets = useSafeAreaInsets();
   const { openMenu } = useMenu();
+  const router = useRouter();
 
   const headerHeight = 60 + insets.top;
 
   return (
     <View style={[styles.header, { paddingTop: insets.top, height: headerHeight }]} className='bg-light-tile1'>
-      <TouchableOpacity onPress={openMenu} style={styles.menuButton}>
-        <Icon name="menu" size={20} color={Colors.light.tile4} style={{fontSize: 40}} />
+      <TouchableOpacity
+        onPress={showBackButton ? () => router.back() : openMenu}
+        style={styles.menuButton}
+      >
+        <Icon
+          name={showBackButton ? 'chevron-left' : 'menu'}
+          size={40}
+          color={Colors.light.fourth}
+        />
       </TouchableOpacity>
 
-      <Text className='text-light-tile4 font-bold text-2xl'>{title}</Text>
-
+      <Image
+        source={require('@/assets/images/iconH.png')}
+        height={10}
+        width={25}
+        style={{height: 60, width: 180}}
+      />
       <View style={styles.menuButton} />
     </View>
   );
@@ -30,6 +43,7 @@ export const CustomHeaderWithMenu = ({ title }: Props) => {
 
 const styles = StyleSheet.create({
   header: {
+    backgroundColor: Colors.light.primary,
     paddingHorizontal: 16,
     flexDirection: 'row',
     justifyContent: 'space-between',

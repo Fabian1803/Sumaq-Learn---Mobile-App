@@ -23,7 +23,7 @@ export default function StartScreen() {
     };
 
     return (
-        <View className='flex justify-center items-center bg-light-tile1 h-full'>
+        <View className='flex justify-center items-center bg-light-primary h-full'>
             <View className='flex h-[80%] w-full justify-center items-center'>
                 <Image
                     source={require('@/assets/images/icon.png')}
@@ -32,8 +32,8 @@ export default function StartScreen() {
             </View>
             <View className='flex h-[20%] w-full gap-1 items-center'>
                 <Link href="./SearchSchoolScreen" asChild>
-                    <Pressable className='w-[80%] items-center p-[15px] bg-light-tile4 rounded-lg'>
-                        <Text className='text-light-tile1 font-semibold text-xl'>Encontrar mi escuela</Text>
+                    <Pressable className='w-[80%] items-center p-[15px] bg-light-fourth rounded-lg'>
+                        <Text className='text-light-primary font-semibold text-xl'>Encontrar mi escuela</Text>
                     </Pressable>
                 </Link>
                 <View className='flex gap-5 w-[80%]'>
@@ -42,16 +42,16 @@ export default function StartScreen() {
                         <Pressable
                             onPressIn={() => handlePressIn('btn1')}
                             onPressOut={() => handlePressOut('btn1')}
-                            className={`flex-1 items-center p-[15px] ${onPressend.btn1 ? 'bg-light-tile2' : ''}`}
+                            className={`flex-1 items-center p-[15px] ${onPressend.btn1 ? 'bg-light-secondary' : ''}`}
                         >
-                            <Text className='text-2xl text-light-tile4'>Cod QR</Text>
+                            <Text className='text-2xl text-light-fourth'>Cod QR</Text>
                         </Pressable>
                         <Pressable
                             onPressIn={() => handlePressIn('btn2')}
                             onPressOut={() => handlePressOut('btn2')}
-                            className={`flex-1 items-center p-[15px] ${onPressend.btn2 ? 'bg-light-tile2' : ''}`}
+                            className={`flex-1 items-center p-[15px] ${onPressend.btn2 ? 'bg-light-secondary' : ''}`}
                         >
-                            <Text className='text-2xl text-light-tile4'>Network</Text>
+                            <Text className='text-2xl text-light-fourth'>Network</Text>
                         </Pressable>
                     </View>
                 </View>

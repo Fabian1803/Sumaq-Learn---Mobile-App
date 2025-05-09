@@ -11,8 +11,8 @@ type Proms = {
 export default function RecoveryNextButton({ href, value, route = false }: Proms) {
     return (
         <Link href={`${route ? '../' : './'}${href}`} asChild>
-            <Pressable className="bg-light-tile1 rounded-md p-4">
-                <Text className="text-center text-light-tile4 text-[18px]">
+            <Pressable className="bg-light-fourth rounded-md p-4">
+                <Text className="text-center text-light-primary text-[18px]">
                     {value}
                 </Text>
             </Pressable>

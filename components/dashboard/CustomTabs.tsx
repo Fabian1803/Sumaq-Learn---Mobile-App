@@ -1,7 +1,8 @@
 import { useRouter, usePathname } from 'expo-router';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Colors } from '@/constants/Colors';
 
 type AntDesignIconName = 'book' | 'calendar' | 'form' | 'bells' | 'message1';
 
@@ -26,8 +27,13 @@ export function CustomTabs() {
 
   return (
     <View
-      className="flex-row justify-between bg-white border-t border-gray-300"
-      style={{ paddingBottom: insets.bottom, paddingHorizontal: 15}} // <-- aquí el truco
+      style={[
+        styles.container,
+        {
+          paddingBottom: insets.bottom,
+          paddingHorizontal: 15
+        }
+      ]}
     >
       {tabs.map((tab) => {
         const isActive = pathname === tab.route;
@@ -36,19 +42,63 @@ export function CustomTabs() {
           <TouchableOpacity
             key={tab.route}
             onPress={() => router.push({ pathname: tab.route as any })}
-            className="items-center"
+            style={styles.tabButton}
           >
             <AntDesign
               name={tab.icon}
               size={24}
-              color={isActive ? '#2a9d8f' : '#aaa'}
+              color={isActive ? Colors.light.true : Colors.light.secondary}
             />
-            <Text className={isActive ? 'text-[#2a9d8f] text-xs' : 'text-gray-500 text-xs'}>
-              {tab.name}
-            </Text>
+            {isActive && <View style={styles.deco}></View>}
+            {!isActive &&
+              <Text numberOfLines={(1)}
+                style={[
+                  styles.tabText,
+                  isActive ? styles.activeTabText : styles.inactiveTabText
+                ]}>
+                {tab.name}
+              </Text>
+            }
+
           </TouchableOpacity>
         );
       })}
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: Colors.light.primary,
+    borderTopWidth: 3,
+    borderTopColor: Colors.light.fourth,
+  },
+  tabButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 9,
+    paddingBottom: 5,
+    width: '18%',
+    position: 'relative',
+  },
+  deco: {
+    borderWidth: 4,
+    borderColor: Colors.light.alert,
+    borderRadius:3,
+    width: '65%',
+    overflow: 'hidden',
+    top: '-105%',
+    backgroundColor: Colors.light.alert,
+  },
+  tabText: {
+    fontSize: 12,
+  },
+  activeTabText: {
+    color: Colors.light.true,
+  },
+  inactiveTabText: {
+    color: Colors.light.secondary,
+  }
+});

@@ -7,11 +7,12 @@ module.exports = {
         extend: {
             colors: {
                 light: {
-                    tile1: '#769FCD',
-                    tile2: '#B9D7EA',
-                    tile3: '#D6E6F2',
-                    tile4: '#F7FBFC',
-                    text1: 'black',
+                    primary: '#f8f4ec',
+                    secondary: '#d9a066',
+                    third: '#8c6239',
+                    fourth: '#2d1c0f',
+                    true: '#5b8c5a',
+                    alert: '#c0392b',
                 },
                 dark: {
 

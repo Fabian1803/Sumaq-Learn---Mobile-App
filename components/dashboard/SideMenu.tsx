@@ -69,7 +69,7 @@ export const SideMenu = () => {
         }]}
         className='bg-light-tile1'>
         <View className='flex flex-row px-[15px] gap-5' 
-        style={{ borderBottomWidth: 2, paddingBottom: 25, borderBottomColor: Colors.light.tile4 }}>
+        style={{ borderBottomWidth: 2, paddingBottom: 25, borderBottomColor: Colors.light.fourth }}>
           <View className="border-2" style={{ overflow: 'hidden', width: 80, height: 80, borderRadius: 50 }}>
             <Image
               source={require('@/assets/images/blanco.png')}
@@ -82,60 +82,60 @@ export const SideMenu = () => {
             <Text className='text-light-tile4'>u20227896@gmail.com</Text>
           </View>
         </View>
-        <View style={{ borderBottomWidth: 2, borderBlockColor: Colors.light.tile1 }}>
+        <View style={{ borderBottomWidth: 2, borderBlockColor: Colors.light.fourth }}>
           {menuStudent.map((item, index) => (
             <TouchableOpacity
               key={index}
               style={styles.menuItem}
-              className='flex flex-row items-center bg-light-tile3'
+              className='flex flex-row items-center bg-light-primary'
               onPress={() => {
                 router.push(item.route as any);
                 closeMenu();
               }}
             >
 
-              <Icon name={item.icon} size={24} color={Colors.light.text1} className='mr-[10px] w-[15%]' />
-              <Text className='text-light-text1 text-2xl'>{item.title}</Text>
+              <Icon name={item.icon} size={24} color={Colors.light.fourth} className='mr-[10px] w-[15%]' />
+              <Text className='text-light-fourth text-2xl'>{item.title}</Text>
             </TouchableOpacity>
           ))}
         </View>
-        <View style={{ borderBottomWidth: 2, borderBlockColor: Colors.light.tile1 }}>
+        <View style={{ borderBottomWidth: 2, borderBlockColor: Colors.light.fourth }}>
           {menuOpcional.map((item, index) => (
             <TouchableOpacity
               key={index}
               style={styles.menuItem}
-              className='flex flex-row items-center bg-light-tile3'
+              className='flex flex-row items-center bg-light-primary'
               onPress={() => {
                 router.push(item.route as any);
                 closeMenu();
               }}
             >
 
-              <Icon name={item.icon} size={24} color={Colors.light.text1} className='mr-[10px] w-[15%]' />
-              <Text className='text-light-text1 text-2xl'>{item.title}</Text>
+              <Icon name={item.icon} size={24} color={Colors.light.fourth} className='mr-[10px] w-[15%]' />
+              <Text className='text-light-fourth text-2xl'>{item.title}</Text>
             </TouchableOpacity>
           ))}
         </View>
-        <View style={{ borderBottomWidth: 2, borderBlockColor: Colors.light.tile4 }}>
+        <View style={{ borderBottomWidth: 2, borderBlockColor: Colors.light.fourth }}>
           {menuSettings.map((item, index) => (
             <TouchableOpacity
               key={index}
               style={styles.menuItem}
-              className='flex flex-row items-center bg-light-tile3'
+              className='flex flex-row items-center bg-light-primary'
               onPress={() => {
                 router.push(item.route as any);
                 closeMenu();
               }}
             >
 
-              <Icon name={item.icon} size={24} color={Colors.light.text1} className='mr-[10px] w-[15%]' />
+              <Icon name={item.icon} size={24} color={Colors.light.fourth} className='mr-[10px] w-[15%]' />
               <Text className='text-light-text1 text-2xl'>{item.title}</Text>
             </TouchableOpacity>
           ))}
         </View>
         
         <View className='flex flex-row flex-1 justify-between'>
-          <Text>v. 0.0.1</Text>
+          <Text>v. 0.0.5</Text>
           <Image
             source={require('@/assets/images/icon.png')}
             className='w-[110px] h-[110px]'
@@ -164,6 +164,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.3)',
   },
   menuContainer: {
+    backgroundColor: Colors.light.primary,
+    borderRightColor: Colors.light.fourth,
+    borderRightWidth: 3,
     position: 'absolute',
     left: 0,
     top: 0,

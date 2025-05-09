@@ -43,7 +43,7 @@ export default function SearchSchoolScreen() {
   };
   
   return (
-    <View className='flex-1 bg-light-tile4'>
+    <View className='flex-1 bg-light-primary'>
       <CustomHeader
         title="Buscar"
         showNext
@@ -59,13 +59,13 @@ export default function SearchSchoolScreen() {
       
       {searchText.length < 3 ? (
         <View className='flex-1 justify-center items-center p-5'>
-          <Text className='text-base text-gray-500 text-center'>
+          <Text className='text-xl text-light-fourth font-semibold text-center'>
             Escribe al menos 3 letras para buscar
           </Text>
         </View>
       ) : filteredData.length === 0 ? (
         <View className='flex-1 justify-center items-center p-5'>
-          <Text className='text-base text-gray-500 text-center'>
+          <Text className=' text-light-fourth text-xl text-center'>
             No se encontraron universidades
           </Text>
         </View>
@@ -76,8 +76,8 @@ export default function SearchSchoolScreen() {
           renderItem={({ item }) => (
             <TouchableOpacity
               onPress={() => handleSelectSchool(item)}
-              className={`p-4 border-b border-gray-200 ${
-                selectedSchool === item.id ? 'bg-light-tile2' : ''
+              className={`p-4 border-b border-light-secondary ${
+                selectedSchool === item.id ? 'bg-light-secondary' : ''
               }`}
             >
               <Text className='text-base'>{item.name}</Text>

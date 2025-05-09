@@ -20,14 +20,14 @@ export function CustomHeader({ title, showNext, isNextEnabled = true, onNext }: 
 
     return (
         <View>
-            <View style={{ height: headerHeight, backgroundColor: Colors.light.tile1}}></View>
+            <View style={{ height: headerHeight, backgroundColor: Colors.light.secondary}}></View>
             <View style={styles.header}>
                 
                 <Text style={styles.title}>{title}</Text>
 
                 {showNext && (
                     <TouchableOpacity onPress={isNextEnabled ? onNext : undefined}>
-                        <Text style={[styles.nextText, { color: isNextEnabled ? '#007AFF' : '#ccc' }]}>
+                        <Text style={[styles.nextText, { color: isNextEnabled ? Colors.light.true : Colors.light.alert }]}>
                             Siguiente
                         </Text>
                     </TouchableOpacity>
@@ -41,7 +41,9 @@ const styles = StyleSheet.create({
     header: {
         height: 50,
         paddingHorizontal: 16,
-        backgroundColor: Colors.light.tile1,
+        backgroundColor: Colors.light.secondary,
+        borderBottomWidth: 3,
+        borderBottomColor: Colors.light.fourth,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -53,5 +55,6 @@ const styles = StyleSheet.create({
     },
     nextText: {
         fontSize: 16,
+        fontWeight: '600'
     },
 });
