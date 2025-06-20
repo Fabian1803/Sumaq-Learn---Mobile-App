@@ -1,5 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
+import { Colors } from '@/constants/Colors';
 
 export default function ChatDropDown() {
     const [isOpen, setIsOpen] = useState(false);
@@ -41,11 +42,10 @@ const styles = StyleSheet.create({
     },
     dropdownButton: {
         borderWidth: 2,
-        borderColor: '#ccc',
-        borderRadius: 4,
+        borderColor: Colors.light.fourth,
         paddingVertical: 10,
         paddingHorizontal: 15,
-        backgroundColor: 'white',
+        backgroundColor: Colors.light.orange,
     },
     buttonText: {
         fontSize: 16,
@@ -55,10 +55,11 @@ const styles = StyleSheet.create({
         top: '100%',
         left: 0,
         right: 0,
-        backgroundColor: 'white',
-        borderWidth: 1,
-        borderColor: '#eee',
-        borderRadius: 4,
+        backgroundColor: Colors.light.orange,
+        borderTopWidth: 2,
+        borderRightWidth: 2,
+        borderLeftWidth: 2,
+        borderColor: Colors.light.fourth,
         marginTop: 5,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
@@ -69,8 +70,8 @@ const styles = StyleSheet.create({
     optionItem: {
         paddingVertical: 10,
         paddingHorizontal: 15,
-        borderBottomWidth: 1,
-        borderBottomColor: '#f0f0f0',
+        borderBottomWidth: 2,
+        borderBottomColor: Colors.light.fourth,
     },
     optionText: {
         fontSize: 16,

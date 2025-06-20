@@ -7,7 +7,12 @@ export const Colors = {
     third: '#8c6239',
     fourth: '#2d1c0f',
     true: '#5b8c5a',
-    alert: '#c0392b', 
+    alert: '#c0392b',
+    accent: '#ffe066',
+    info: '#3498db',
+    neutral: '#f0ead6',
+    orange: '#F77334ff',
+    yellow: '#FCDF42ff',
   },
   dark: {
     text: '#ECEDEE',

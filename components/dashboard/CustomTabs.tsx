@@ -46,8 +46,9 @@ export function CustomTabs() {
           >
             <AntDesign
               name={tab.icon}
-              size={24}
-              color={isActive ? Colors.light.true : Colors.light.secondary}
+              size={isActive ? 28 : 24}
+              color={isActive ? Colors.light.orange : Colors.light.third}
+
             />
             {isActive && <View style={styles.deco}></View>}
             {!isActive &&
@@ -59,7 +60,6 @@ export function CustomTabs() {
                 {tab.name}
               </Text>
             }
-
           </TouchableOpacity>
         );
       })}
@@ -71,8 +71,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: Colors.light.primary,
-    borderTopWidth: 3,
+    backgroundColor: Colors.light.neutral,
+    borderTopWidth: 2,
     borderTopColor: Colors.light.fourth,
   },
   tabButton: {
@@ -84,13 +84,14 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   deco: {
-    borderWidth: 4,
-    borderColor: Colors.light.alert,
-    borderRadius:3,
+    borderWidth: 2,
+    borderColor: Colors.light.fourth,
+    height: 8,
+    borderRadius: 3,
     width: '65%',
     overflow: 'hidden',
-    top: '-105%',
-    backgroundColor: Colors.light.alert,
+    top: '-112%',
+    backgroundColor: Colors.light.orange,
   },
   tabText: {
     fontSize: 12,
@@ -99,6 +100,6 @@ const styles = StyleSheet.create({
     color: Colors.light.true,
   },
   inactiveTabText: {
-    color: Colors.light.secondary,
+    color: Colors.light.fourth,
   }
 });

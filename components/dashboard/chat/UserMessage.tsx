@@ -6,7 +6,7 @@ import { router } from 'expo-router'
 
 export default function UserMessage() {
     return (
-        <TouchableOpacity style={styles.container} onPress={()=> (router.push('/screens/screenMessages/ChatUser'))}>
+        <TouchableOpacity style={styles.container} onPress={()=> (router.push('/screens/tabs/messages/ChatUser'))}>
             <View style={styles.block1}>
                 <View style={styles.icon}>
                     <Image
@@ -15,20 +15,20 @@ export default function UserMessage() {
                         resizeMode='cover'
                     />
                 </View>
-                <View>
+                <View style={{ flex: 1}}>
                     <Text numberOfLines={2} 
-                    style={{fontSize: 20, fontWeight: '600', color: Colors.light.primary}}>Fabian Mauro Rivera Morales</Text>
-                    <Text style={{fontSize: 16, fontWeight: '600', color: Colors.light.primary}}>u20227896</Text>
+                    style={{fontSize: 20, fontWeight: '600', lineHeight: 20, color: Colors.light.fourth}}>Fabian Mauro Rivera Morales</Text>
+                    <Text style={{fontSize: 16, fontWeight: '600', color: Colors.light.fourth}}>u20227896</Text>
                 </View>
             </View>
             <View style={styles.block2}>
                 <View style={styles.type}>
-                    <Icon name='mail' size={28} style={{color: Colors.light.primary}} />
-                    <Text style={{color: Colors.light.primary}}>u20227896@uni.edu.pe</Text>
+                    <Icon name='mail' size={28} style={{color: Colors.light.fourth}} />
+                    <Text style={{color: Colors.light.fourth}}>u20227896@uni.edu.pe</Text>
                 </View>
                 <View style={styles.type}>
-                    <Icon name='book' size={28} style={{color: Colors.light.primary}}/>
-                    <Text style={{color: Colors.light.primary}}>Ingieneria de software</Text>
+                    <Icon name='book' size={28} style={{color: Colors.light.fourth}}/>
+                    <Text style={{color: Colors.light.fourth}}>Ingieneria de software</Text>
                 </View>
             </View>
         </TouchableOpacity>
@@ -37,17 +37,17 @@ export default function UserMessage() {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: Colors.light.true,
-        padding: 15,
-        gap: 15,
+        backgroundColor: Colors.light.neutral,
+        padding: 8,
+        gap: 8,
         borderWidth: 2,
-        borderRadius: 5,
+        borderRightWidth: 6,
         marginBottom: 10,
     },
     block1: {
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 15,
+        gap: 8,
     },
     icon: {
         borderWidth: 2,
@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 50,
     },
     iconChat: {
         width: 150,
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
     },
     type: {
         flexDirection: 'row',
-        gap: 10,
+        gap: 8,
         alignItems: 'center',
     },
 })

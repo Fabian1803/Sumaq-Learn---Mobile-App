@@ -6,7 +6,7 @@ import ChatBubble from '@/components/dashboard/chat/ChatBubble'
 export default function ChatUser() {
   return (
     <View className='flex-1'>
-      <View className='flex-row justify-center items-center gap-3 pb-3 bg-light-tile1 border-b-[3px]'>
+      <View className='flex-row justify-center items-center gap-3 pb-3 bg-light-neutral border-b-[3px]'>
         <View className="border-2 border-light-tile4"
           style={{ overflow: 'hidden', width: 60, height: 60, borderRadius: 60 }}>
           <Image

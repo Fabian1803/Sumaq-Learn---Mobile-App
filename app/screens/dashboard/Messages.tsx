@@ -1,25 +1,26 @@
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
 import React from 'react'
 import ChatDropDown from '@/components/dashboard/ChatDropDown'
-import UserMessage from '@/components/dashboard/UserMessage'
+import UserMessage from '@/components/dashboard/chat/UserMessage'
 import { router } from 'expo-router'
 
 export default function Messages() {
   return (
-    <View className='bg-light-primary flex-1'>
-      <View className='flex-row pb-3 px-5 items-center border-b-[3px] border-b-light-fourth'>
-        <Text className='flex-1 text-2xl'>Chat</Text>
+    <View className='flex-1'>
+      <View className='flex-row pb-3 p-3 items-center border-b-2
+       border-b-light-fourth bg-light-neutral'>
+        <Text className='flex-1 text-2xl font-semibold'>Chat</Text>
         <ChatDropDown />
       </View >
-      <ScrollView className='h-full p-3'>
+      <ScrollView showsVerticalScrollIndicator={false} className='h-full p-3 bg-light-primary'>
         <UserMessage />
         <UserMessage />
         <UserMessage />
         <UserMessage />
       </ScrollView>
-      <TouchableOpacity className=' bottom-0 absolute right-0 border-[3px] w-20 h-20 m-4 justify-center 
-      items-center rounded-full bg-light-secondary'
-      onPress={() => (router.push('/screens/screenMessages/SearchUser'))}>
+      <TouchableOpacity className=' bottom-0 absolute right-0 border-2 w-20 h-20 m-4 justify-center 
+      items-center rounded-full bg-light-orange'
+      onPress={() => (router.push('/screens/tabs/messages/SearchUser'))}>
         <Text className='text-3xl text-light-fourth font-semibold'>+</Text>
       </TouchableOpacity>
     </View>

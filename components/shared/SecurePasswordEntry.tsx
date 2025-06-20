@@ -15,11 +15,11 @@ type Proms = {
     return (
       <View
         className="flex flex-row items-center px-[12px]"
-        style={{ backgroundColor: colorBg, borderWidth: 3, borderRadius: 5 }}
+        style={{ backgroundColor: colorBg, borderWidth: 2, borderRightWidth: 6 }}
       >
         <Icon name="lock" size={20} color={colorText} style={{ marginRight: 10 }} />
         <TextInput
-          className="flex h-[50px] text-[16px] w-[79%] flex-1"
+          className="flex h-[43px] text-[16px] w-[79%] flex-1"
           style={{ color: colorText }}
           placeholder={text}
           placeholderTextColor={colorText}

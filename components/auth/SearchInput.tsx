@@ -30,10 +30,10 @@ export default function SearchInput({
 const styles = StyleSheet.create({
   searchContainer: {
     borderWidth: 2,
+    borderRightWidth: 6,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: Colors.light.primary,
-    borderRadius: 5,
+    backgroundColor: Colors.light.neutral,
     paddingHorizontal: 15,
     margin: 16,
   },
